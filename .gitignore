@@ -1,0 +1,35 @@
+# --- OS / Editor ---
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+.vscode/
+.idea/
+*.swp
+
+# --- Logs ---
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Env / secrets ---
+.env
+.env.*
+
+# --- Node / JS (monorepo) ---
+**/node_modules/
+**/dist/
+**/build/
+**/.vite/
+**/.cache/
+**/.parcel-cache/
+
+# --- Coverage / test artifacts ---
+coverage/
+**/coverage/
+
+# --- Optional local files ---
+*.local
+
