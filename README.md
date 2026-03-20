@@ -9,8 +9,8 @@ This repository contains:
 
 ## Screen Shots from the project
 
-[![Accueil](docs/images/cart.jpg)](docs/images/cart.jpg)
-[![Accueil](docs/images/cart2.jpg)](docs/images/cart2.jpg)
+![Accueil](docs/images/cart.jpg)
+![imagesDocker](docs/images/cart2.jpg)
 
 
 ## Project structure
