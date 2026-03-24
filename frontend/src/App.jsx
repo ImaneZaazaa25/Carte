@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
+import "leaflet/dist/leaflet.css"; // ⚠️ CSS Leaflet indispensable
 
 export default function App() {
   const [stations, setStations] = useState([]);
 
-  // Custom "location pin" icon (inline SVG) so we don't rely on external assets.
   const sensorIcon = L.divIcon({
     className: "sensor-icon",
     html: `
@@ -19,15 +19,21 @@ export default function App() {
       </div>
     `,
     iconSize: [32, 32],
-    iconAnchor: [16, 32], // point at the "tip" of the pin
+    iconAnchor: [16, 32],
     popupAnchor: [0, -32],
   });
 
   useEffect(() => {
-    fetch("http://backendcart:5000/api/stations")
-      .then((res) => res.json())
-      .then(setStations)
-      .catch(console.error);
+    fetch("http://localhost:5000/api/stations")
+      .then((res) => {
+        if (!res.ok) throw new Error("Erreur fetch stations");
+        return res.json();
+      })
+      .then((data) => {
+        console.log("JSON reçu du backend :", data); // <-- ici !
+        setStations(data);
+      })
+      .catch((err) => console.error("Erreur fetch:", err));
   }, []);
 
   const center =
